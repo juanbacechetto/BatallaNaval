@@ -4,7 +4,7 @@ import GameBoard from '../components/GameBoard';
 import PlayInstructions from '../components/PlayInstructions';
 import YourGameBoard from './YourGameBoard';
 import checkShips from '../helpFunctions/checkShips';
-import '../css/gameTitle.css';
+import '../styles/gameTitle.css';
 
 let PlayGame = (props) => {
   let test = checkShips(props.ships);

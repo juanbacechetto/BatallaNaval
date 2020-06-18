@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {changeShipOrientation} from '../actions/actionCreators';
-import '../css/ships.css';
+import '../styles/ships.css';
 
 // creates the toggle button to change the ships orientation if size > 1
 let ToggleShip = (props) => {

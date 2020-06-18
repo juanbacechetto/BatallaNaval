@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {changeSelectedSquare, placeShipOnBoard, relocateShip} from '../actions/actionCreators';
 import BOARD_DIMENSION from '../actions/data';
-import '../css/board.css';
+import '../styles/board.css';
 
 // Squares make the board
 let Cell = (props)=> {

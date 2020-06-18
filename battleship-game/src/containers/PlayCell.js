@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {changeSquareTarget, throwBomb, opponentAboutToPlay} from '../actions/actionCreators';
-import '../css/board.css';
+import '../styles/board.css';
 
 class PlayCell extends React.Component {
   constructor(props) {

@@ -1,19 +1,18 @@
 import React from 'react';
-import Cell from '../containers/Square';
+import PlayCell from '../containers/PlayCell';
 import BOARD_DIMENSION from '../actions/data';
-import '../css/board.css';
 
-const arrRows = [];
+let arrRows = [];
+let arrCols = [];
 for (let i = 0; i < BOARD_DIMENSION; i++) {
   arrRows.push(i);
 }
-//creates an array of the head letter
-const arrCols = [];
+//creates an array of the head letters
 for (let i = 0; i < BOARD_DIMENSION; i++){
-  arrCols.push(String.fromCharCode(65 + i));
+    arrCols.push(String.fromCharCode(65 + i));
 }
-// represents the sea, where the ships are placed
-const Board = () => (
+const GameBoard = () => {
+  return (
     <div>
       <h3>
         This is the game board
@@ -33,7 +32,7 @@ const Board = () => (
                 <div className='rowNumber'>{y + 1}</div>
                 {
                   arrRows.map((x)=> (
-                    <Cell
+                    <PlayCell
                       x={x}
                       y={y}
                       key={`${x}${y}`}/>
@@ -45,32 +44,5 @@ const Board = () => (
       </div>
     </div>
   );
-export default Board;
-/*<table className='table'>
-  <caption className='caption'>
-    Place your ships to start the game!
-  </caption>
-  <thead>
-     <th></th>
-    {
-      arrCols.map((el)=> (
-        <th scope='col' style={{margin: '0px'}}>{el}</th>
-      ))
-    }
-  </thead>
-  <tbody>
-    {
-      arrRows.map((elem)=> (
-        <tr>
-          <th scope='row'>{elem}</th>
-          {
-            arrRows.map((el)=> (
-              <td>{<Square />}</td>
-            ))
-          }
-        </tr>
-      ))
-    }
-  </tbody>
-</table> */
-
+}
+export default GameBoard;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Cell from '../containers/Square';
+import Cell from '../containers/Cell';
 import BOARD_DIMENSION from '../actions/data';
-import '../css/board.css';
+import '../styles/board.css';
 
 const arrRows = [];
 for (let i = 0; i < BOARD_DIMENSION; i++) {
@@ -23,11 +23,11 @@ const Board = () => (
         {
           arrCols.map((letter, index) => (
             // the head letters
-            <div className='square colNumber' key={index}>{letter}</div>
+            <div className='Cell colNumber' key={index}>{letter}</div>
           ))
         }
           {
-            // builds the board row by row from Squares
+            // builds the board row by row from Cells
             arrRows.map((y, index)=> (
               <div key={index}>
                 <div className='rowNumber'>{y + 1}</div>
@@ -65,7 +65,7 @@ export default Board;
           <th scope='row'>{elem}</th>
           {
             arrRows.map((el)=> (
-              <td>{<Square />}</td>
+              <td>{<Cell />}</td>
             ))
           }
         </tr>

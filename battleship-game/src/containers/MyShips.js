@@ -1,7 +1,7 @@
 import React from 'react';
-import Ship from './Ship';
+import Ship from './Ships';
 import ShipOrientation from './ShipOrientation';
-import '../css/ships.css';
+import '../styles/ships.css';
 import {connect} from 'react-redux';
 
 // creates the list of ships and the toggle button

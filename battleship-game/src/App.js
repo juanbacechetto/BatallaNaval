@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import GameInstructions from './components/GameIntructions';
+import Board from './components/Board';
+import MyShips from './containers/MyShips';
+import './styles/gameTitle.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
+const App = () => (
+  <div className='App'>
+    <div className='titleBox'>
+      <h2 className='title'>Battlefield Game</h2>
+      <p>Use the instructions to place your ships and play the game!</p>
+    </div>
+    <div className='left-side'>
+      <GameInstructions />
+      <MyShips />
+    </div>
+    <div className="middle-side">
+      <Board />
+    </div>
+    {/* <div className='right-side'>
+      <ChatRoom />
+    </div> */}
+  </div>
+);
 export default App;

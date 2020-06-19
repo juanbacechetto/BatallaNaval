@@ -2,15 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 let YourCell = (props) => {
-  // changes the color of the squares where your ships are located
-  let styleForShip = 'square squareSmaller';
+  // changes the color of the cell where your ships are located
+  let styleForShip = 'cell cellSmaller';
   const cell = props.matrix[props.y][props.x];
     if (cell === 'X') {
-      styleForShip += ' squareHit';
+      styleForShip += ' cellHit';
     } else if (cell === 'o') {
-      styleForShip += ' squareMissed';
+      styleForShip += ' cellMissed';
     } else if (typeof(cell) === 'number') {
-      styleForShip += ' squareShip';
+      styleForShip += ' cellShip';
     }
 
   return (

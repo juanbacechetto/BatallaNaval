@@ -3,7 +3,7 @@ import BOARD_DIMENSION from '../actions/data';
 // ramdomly creates the matrix of the opponent's ships
 const setupMatrixOpponent = (ships) => {
   let shipsOpponent = [];
-  let totalShipSquares = 0;
+  let totalShipCells = 0;
   // let matrixOpponent = new Array(BOARD_DIMENSION).fill(new Array(BOARD_DIMENSION).fill(null));
   let matrixOpponent = new Array(BOARD_DIMENSION).fill(1).map((elem) => {
     return new Array(BOARD_DIMENSION).fill(null)
@@ -62,8 +62,8 @@ const setupMatrixOpponent = (ships) => {
     };
     shipsOpponent.push(newShip);
     // calculate totalShips to find the winner
-    totalShipSquares += ship.size;
+    totalShipCells += ship.size;
   });
-  return {matrixOpponent, shipsOpponent, totalShipSquares};
+  return {matrixOpponent, shipsOpponent, totalShipCells};
 }
 export default setupMatrixOpponent;

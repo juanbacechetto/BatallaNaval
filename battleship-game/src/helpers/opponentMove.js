@@ -25,7 +25,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
     for (let i = 0; i <= 100; i++) {
       x = Math.floor(Math.random() * BOARD_DIMENSION);
       y = Math.floor(Math.random() * BOARD_DIMENSION);
-      // this square has not been hit before
+      // this cell has not been hit before
       if (matrix[y][x] !== 'X' && matrix[y][x] !== 'o') {
         console.log('PC targets ', x, ', ', y);
         break;
@@ -65,20 +65,20 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
     }
   };
 
-  // wait 2 to 4 seconds and choose the target square
+  // wait 2 to 4 seconds and choose the target cell
   let timeWait = Math.random() * (1500 - 1000) + 1000;
   // let handle =
   setTimeout(function() {
 
     switch (stage) {
       case 1:
-        // have hit first square of a ship -> find ship orientation
+        // have hit first cell of a ship -> find ship orientation
         let flag = false;
         for (let i = sinkShip.length; i < positionArray.length; i++) {
           x = positionArray[i].x;
           y = positionArray[i].y;
           sinkShip.push(positionArray[i]);
-          // this square has not been hit before
+          // this cell has not been hit before
           if (matrix[y][x] !== 'X' && matrix[y][x] !== 'o') {
             // when x and y are decided, make the new move
             checkNewMove = makeNewMove(x, y);
@@ -97,13 +97,13 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
       case 2:
       // found ship orientation -> moving one side
         if (shipOrientation === 1) {
-          /* hit square above */
+          /* hit cell above */
           if (y === 0) {
             initializeHit();
           } else {
             y = y - 1;
             if (matrix[y][x] === 'X' || matrix[y][x] === 'o') {
-              // if the square has already been hit
+              // if the cell has already been hit
               initializeHit();
             } else {
               checkNewMove = makeNewMove(x, y);
@@ -114,7 +114,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
           }
 
         } else if (shipOrientation === 3) {
-          /* hit square on the left */
+          /* hit cell on the left */
           if (x === 0) {
             initializeHit();
           } else {
@@ -130,7 +130,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
           }
 
         } else if (shipOrientation === 0) {
-          /* hit square below */
+          /* hit cell below */
           const hitOpposite = () => {
             let flags = false;
             let k = y;
@@ -171,7 +171,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
           }
 
         } else if (shipOrientation === 2) {
-          /* hit square on the right */
+          /* hit cell on the right */
           const oppositeHit = () => {
             let flags = false;
             let k = x;
@@ -258,13 +258,6 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
         initializeHit();
     }
 
-    // TODO: check the case of single square ship (done) -> TODO
-
-    // TODO: check if the new square exists! -> case 3 (done)
-
-    // TODO: check if the chosen square has already been hit (done)
-
-    // TODO: check if the square hit is placed on the border (e.g. x: 0, y: 3) (done)
 
     return callback({string, x, y, message, positionArray, sinkShip, shipOrientation, newStage});
   }, timeWait);

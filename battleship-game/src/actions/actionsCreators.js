@@ -1,5 +1,5 @@
-import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP_ON_BOARD, RELOCATE_SHIP,
-    OPPONENT_SETUP, CHANGE_SQUARE_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from './actionsTypes';
+import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_CELL, PLACE_SHIP_ON_BOARD, RELOCATE_SHIP,
+    OPPONENT_SETUP, CHANGE_CELL_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from './actionsTypes';
   import opponentMove from '../helpers/opponentMove';
   
   const selectShip = (id)=> {
@@ -13,9 +13,9 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
       type: CHANGE_SHIP_ORIENTATION,
     };
   };
-  const changeSelectedSquare = (x, y)=> {
+  const changeSelectedCell = (x, y)=> {
     return {
-      type: CHANGE_SELECTED_SQUARE,
+      type: CHANGE_SELECTED_CELL,
       x,
       y
     };
@@ -36,9 +36,9 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
       type: OPPONENT_SETUP
     };
   };
-  const changeSquareTarget = (x, y) => {
+  const changeCellTarget = (x, y) => {
     return {
-      type: CHANGE_SQUARE_TARGET,
+      type: CHANGE_CELL_TARGET,
       x,
       y
     };
@@ -70,5 +70,5 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
       type: PLAY_AGAIN
     };
   };
-  export {selectShip, changeShipOrientation, changeSelectedSquare, placeShipOnBoard, relocateShip,
-     opponentSetup, changeSquareTarget, throwBomb, opponentAboutToPlay, playAgain};
+  export {selectShip, changeShipOrientation, changeSelectedCell, placeShipOnBoard, relocateShip,
+     opponentSetup, changeCellTarget, throwBomb, opponentAboutToPlay, playAgain};

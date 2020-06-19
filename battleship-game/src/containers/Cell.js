@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {changeSelectedSquare, placeShipOnBoard, relocateShip} from '../actions/actionsCreators';
+import {changeSelectedCell, placeShipOnBoard, relocateShip} from '../actions/actionsCreators';
 import BOARD_DIMENSION from '../actions/data';
 import '../styles/board.css';
 
-// Squares make the board
+// Cells make the board
 let Cell = (props)=> {
-// hoverSquare shows the possible position of the ship according to size
-  const hoverSquare = (e) => {
+// hoverCell shows the possible position of the ship according to size
+  const hoverCell = (e) => {
     if (props.selectedShipIndex > -1) {
     // array distructuring
     let [x, y] = e.target.id.split('-');
@@ -30,11 +30,11 @@ let Cell = (props)=> {
           y = diff;
         }
       }
-      // changes the selected square - the first square for the ship to fit the line
-      props.changeSelectedSquare(x, y);
+      // changes the selected cell - the first cell for the ship to fit the line
+      props.changeSelectedCell(x, y);
     }
   }
-// clickOnBoard chooses the ships position - this is the first square of the ship
+// clickOnBoard chooses the ships position - this is the first cell of the ship
   const clickOnBoard = (e) => {
     // if there is a ship and you need to relocate it
     let [x, y] = e.target.id.split('-');
@@ -44,9 +44,9 @@ let Cell = (props)=> {
       return props.relocateShip(value);
     }
     if (props.selectedShipIndex > -1) {
-      // check if there is a square that is already occupied by another ship
-      const x = props.selectedSquare.x;
-      const y = props.selectedSquare.y;
+      // check if there is a cell that is already occupied by another ship
+      const x = props.selectedCell.x;
+      const y = props.selectedCell.y;
       const size = props.ships[props.selectedShipIndex].size;
       if (props.ships[props.selectedShipIndex].isHorizontal) {
         for (let i = x; i < x + size; i++) {
@@ -61,40 +61,40 @@ let Cell = (props)=> {
           }
         }
       }
-      // places the ship on the selected square according to its orientation -> matrix cell value = shipIndex
+      // places the ship on the selected cell according to its orientation -> matrix cell value = shipIndex
       props.placeShipOnBoard();
 //      props.deselectShipIndex();
     }
   }
-  // changes the color of the square on the ship hover
-  let styleForShip = 'square';
+  // changes the color of the cell on the ship hover
+  let styleForShip = 'cell';
   if (props.selectedShipIndex > -1) {
     // props.x starts from 0
     if (props.matrix[props.y][props.x] != null) {
-      styleForShip += ' squareShip';
+      styleForShip += ' cellShip';
     } else {
       // if the ship is horizontal
       if (props.ships[props.selectedShipIndex].isHorizontal) {
-        // totalX: index of the ship's last square
-        const totalX = props.selectedSquare.x + props.ships[props.selectedShipIndex].size;
-        if (props.y === props.selectedSquare.y
-          // on the same line add style from the selected square to the last square of the ship
-          && props.x >= props.selectedSquare.x && props.x < totalX) {
-          styleForShip += ' squareHover';
+        // totalX: index of the ship's last cell
+        const totalX = props.selectedCell.x + props.ships[props.selectedShipIndex].size;
+        if (props.y === props.selectedCell.y
+          // on the same line add style from the selected cell to the last cell of the ship
+          && props.x >= props.selectedCell.x && props.x < totalX) {
+          styleForShip += ' cellHover';
         }
       } else {
       // if the ship is vertical
-        const totalY = props.selectedSquare.y + props.ships[props.selectedShipIndex].size;
-        if (props.x === props.selectedSquare.x
-          && props.y >= props.selectedSquare.y && props.y < totalY) {
-          styleForShip += ' squareHover';
+        const totalY = props.selectedCell.y + props.ships[props.selectedShipIndex].size;
+        if (props.x === props.selectedCell.x
+          && props.y >= props.selectedCell.y && props.y < totalY) {
+          styleForShip += ' cellHover';
         }
       }
     }
   }
   return (
     <div id={`${props.x}-${props.y}`}
-      onMouseOver={hoverSquare}
+      onMouseOver={hoverCell}
       onClick={clickOnBoard}
       className={styleForShip}>
     </div>
@@ -104,14 +104,14 @@ const mapStateToProps = (state) => {
   return {
     ships: state.ships,
     selectedShipIndex: state.selectedShipIndex,
-    selectedSquare: state.selectedSquare,
+    selectedCell: state.selectedCell,
     matrix: state.matrix
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeSelectedSquare: (x, y) => {
-      dispatch(changeSelectedSquare(x, y))
+    changeSelectedCell: (x, y) => {
+      dispatch(changeSelectedCell(x, y))
     },
     placeShipOnBoard: (x, y) => {
       dispatch(placeShipOnBoard(x, y))

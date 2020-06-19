@@ -1,7 +1,7 @@
 .smallTable {
     margin: 0 -4.4vw 0 -1.6vw;
   }
-  .square {
+  .cell {
     display: inline-block;
     border: 1px solid #999;
     background-color: #b7ecfb;
@@ -9,25 +9,25 @@
     height: 4.8vw;
     width: 4.8vw;
   }
-  .squareSmaller {
+  .cellSmaller {
     width: 2.8vw;
     height: 2.8vw;
   }
-  .squareHover {
+  .cellHover {
     outline: none;
     background-color: #5c6093;
     cursor: pointer;
   }
-  .squareShip {
+  .cellShip {
     outline-color: invert;
     background-color: #7e6f90;
     /*cursor: pointer;*/
   }
-  .squareHit {
+  .cellHit {
     outline-color: brown;
     background-color: red;
   }
-  .squareMissed {
+  .cellMissed {
     outline-color: blue;
     background-color: #b7b3bd;
   }
@@ -58,7 +58,7 @@
   }
   
   @media screen and (min-width: 1240px) {
-    .square {
+    .cell {
       width: 3.7vw;
       height: 3.7vw;
     }
@@ -68,7 +68,7 @@
     .rowNumber {
       font-size: 1.1vw;
     }
-    .squareSmaller {
+    .cellSmaller {
       width: 2.5vw;
       height: 2.5vw;
     }
@@ -83,14 +83,14 @@
       width: 11em;
   
     }
-    .square {
+    .cell {
       height: 4vw;
       width: 4vw;
     }
     .colNumber {
       font-size: 2vw;
     }
-    .squareSmaller {
+    .cellSmaller {
       height: 4.1vw;
       width: 4.1vw;
     }
@@ -114,14 +114,14 @@
     .yourBoardTitle {
       margin: 17vw -25vw 0 0;
     }
-    .square {
+    .cell {
       height: 4.9vw;
       width: 4.7vw;
     }
     .colNumber {
       font-size: 2vw;
     }
-    .squareSmaller {
+    .cellSmaller {
       height: 5vw;
       width: 5vw;
     }

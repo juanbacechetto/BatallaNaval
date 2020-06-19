@@ -22,11 +22,11 @@ const GameBoard = () => {
         {
           arrCols.map((letter, index) => (
             // the head letters
-            <div className='square colNumber' key={index}>{letter}</div>
+            <div className='cell colNumber' key={index}>{letter}</div>
           ))
         }
           {
-            // builds the board row by row from Squares
+            // builds the board row by row from Cells
             arrRows.map((y, index)=> (
               <div key={index}>
                 <div className='rowNumber'>{y + 1}</div>

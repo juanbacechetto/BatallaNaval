@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {changeSquareTarget, throwBomb, opponentAboutToPlay} from '../actions/actionsCreators';
+import {changeCellTarget, throwBomb, opponentAboutToPlay} from '../actions/actionsCreators';
 import '../styles/board.css';
 
 class PlayCell extends React.Component {
@@ -18,10 +18,10 @@ class PlayCell extends React.Component {
         y = parseInt(y, 10);
         console.log('x, ', x, ' y ', y);
 
-        // if you have already hit this square, choose another one
+        // if you have already hit this cell, choose another one
         if (this.props.matrixOpponent[y][x] === 'X' || this.props.matrixOpponent[y][x] === 'o') {
           console.log('already hit there');
-          this.props.changeSquareTarget(x, y);
+          this.props.changeCellTarget(x, y);
         } else if (this.props.matrixOpponent[y][x] === null) {
           console.log('you missed!');
           this.props.throwBomb('o', x, y);
@@ -34,14 +34,14 @@ class PlayCell extends React.Component {
     }
   };
   render() {
-    let styleForGame = 'square';
+    let styleForGame = 'cell';
     // object destructuring
     let {x, y, matrixOpponent} = this.props;
     if (matrixOpponent[y][x] === 'X') {
-      styleForGame += ' squareHit';
+      styleForGame += ' cellHit';
     }
     if (matrixOpponent[y][x] === 'o') {
-      styleForGame += ' squareMissed'
+      styleForGame += ' cellMissed'
     }
 
     return (
@@ -65,8 +65,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeSquareTarget: (string, x, y) => {
-      dispatch(changeSquareTarget(string, x, y))
+    changeCellTarget: (string, x, y) => {
+      dispatch(changeCellTarget(string, x, y))
     },
     throwBomb: (string, x, y) => {
       dispatch(throwBomb(string, x, y))

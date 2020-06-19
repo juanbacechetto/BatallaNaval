@@ -1,5 +1,5 @@
-import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP_ON_BOARD, RELOCATE_SHIP,
-    OPPONENT_SETUP, CHANGE_SQUARE_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from '../actions/actionsTypes';
+import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_CELL, PLACE_SHIP_ON_BOARD, RELOCATE_SHIP,
+    OPPONENT_SETUP, CHANGE_CELL_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from '../actions/actionsTypes';
   import BOARD_DIMENSION from '../actions/data';
   import setupMatrixOpponent from '../helpers/opponentMatrix';
 
@@ -13,7 +13,7 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
       {id: 4, isHorizontal: true, size: 2, isPlaced: false, xFirst: null, yFirst: null}
     ],
     selectedShipIndex: -1,
-    selectedSquare: {x: 0, y: 0},
+    selectedCell: {x: 0, y: 0},
     matrix: new Array(BOARD_DIMENSION).fill(new Array(BOARD_DIMENSION).fill(null)),
     shipsOpponent: [
       {id: 0, isHorizontal: true, size: 4, isPlaced: false, xFirst: null, yFirst: null},
@@ -39,10 +39,10 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
     },
     isYourTurn: true,
     didYouMiss: true,
-    totalShipSquares: 0,
-    squaresHit: 0,
-    squaresHitOpponent: 0,
-    squareInTarget: {x: -1, y: -1},
+    totalShipCells: 0,
+    cellsHit: 0,
+    cellsHitOpponent: 0,
+    cellInTarget: {x: -1, y: -1},
     chatList: []
     // array of objects -> {player: , text: }
   };
@@ -114,20 +114,20 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
               }
             })
           };
-      case CHANGE_SELECTED_SQUARE:
+      case CHANGE_SELECTED_CELL:
         // if the ship is already placed, don't do anything
         if (state.selectedShipIndex > -1 && !state.ships[state.selectedShipIndex].isPlaced) {
           return {
             ...state,
-            selectedSquare: {x: action.x, y: action.y},
+            selectedCell: {x: action.x, y: action.y},
           };
         }
         return state;
       case PLACE_SHIP_ON_BOARD:
         if (state.selectedShipIndex > -1) {
           const selectedShipIndex = state.selectedShipIndex;
-          const x = state.selectedSquare.x;
-          const y = state.selectedSquare.y;
+          const x = state.selectedCell.x;
+          const y = state.selectedCell.y;
           return {
             ...state,
             matrix: changeMatrix(state, x, y, selectedShipIndex, selectedShipIndex),
@@ -175,12 +175,12 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
           gamePhase: 0
           // matrixOpponent: setupMatrixOpponent(state.ships).matrixOpponent,
           // shipsOpponent: setupMatrixOpponent(state.ships).shipsOpponent,
-          // totalShipSquares: setupMatrixOpponent(state.ships).totalShipSquares
+          // totalShipCells: setupMatrixOpponent(state.ships).totalShipCells
         }
-      case CHANGE_SQUARE_TARGET:
+      case CHANGE_CELL_TARGET:
         return {
           ...state,
-          squareInTarget: {x: action.x, y: action.y},
+          cellInTarget: {x: action.x, y: action.y},
           isYourTurn: true,
         }
       case THROW_BOMB:
@@ -192,7 +192,7 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
         if (action.string === 'X') {
           missed = false;
           addHit = 1;
-          if (state.totalShipSquares - 1 === state.squaresHit) {
+          if (state.totalShipCells - 1 === state.cellsHit) {
             // when gamePhase is 2, you are the winner
             winGame = 2;
           }
@@ -200,20 +200,20 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
         return {
           ...state,
           matrixOpponent: bombMatrix(state.matrixOpponent, action.string, action.x, action.y),
-          squareInTarget: {x: action.x, y: action.y},
+          cellInTarget: {x: action.x, y: action.y},
           // when you play, the opponent's message is erased
           opponentTurn: initialState.opponentTurn,
           isYourTurn: false,
           didYouMiss: missed,
           gamePhase: winGame,
-          squaresHit: state.squaresHit + addHit
+          cellsHit: state.cellsHit + addHit
         }
       case OPPONENT_PLAY:
         let addOne = 0;
         let winOne = 1;
         if (action.string === 'X') {
           addOne = 1;
-          if (state.totalShipSquares - 1 === state.squaresHitOpponent) {
+          if (state.totalShipCells - 1 === state.cellsHitOpponent) {
             winOne = 3;
           }
         }
@@ -225,7 +225,7 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP
             matrix: bombMatrix(state.matrix, action.string, action.x, action.y),
             opponentTurn: action.message,
             isYourTurn: true,
-            squaresHitOpponent: state.squaresHitOpponent + addOne,
+            cellsHitOpponent: state.cellsHitOpponent + addOne,
             // when gamePhase is 3, computer wins
             gamePhase: winOne,
             previousHit: {isItX: action.string, prevX: action.x, prevY: action.y},

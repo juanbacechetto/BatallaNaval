@@ -20,7 +20,7 @@ let store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Routes />
+        <Routes />
     </Router>
   </Provider>, document.getElementById('root')
 );

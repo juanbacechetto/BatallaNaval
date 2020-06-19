@@ -6,7 +6,7 @@ import PlayGame from './containers/PlayGame';
 const Routes = () => (
   <div>
 {/* without exact matches whatever follows the path as well  */}
-    <Route path='/' component={App}/>
+    <Route path='/setup' component={App}/>
     <Route path='/play_game' component={PlayGame}/>
   </div>
 );

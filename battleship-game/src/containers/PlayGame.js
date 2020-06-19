@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import GameBoard from '../components/GameBoard';
-import PlayInstructions from '../components/PlayInstructions';
 import YourGameBoard from './YourGameBoard';
 import checkShips from '../helpers/checkShips';
 import MessageYourTurn from './MessageYourTurn';
@@ -17,19 +16,11 @@ let PlayGame = (props) => {
   }
   return (
     <div className='App'>
-      <div className='titleBox'>
-        <h2 className='title'>Battlefield Game</h2>
-        <p>Use the instructions to play the game!</p>
-      </div>
       <div className='left-side'>
-        <PlayInstructions />
         <YourGameBoard />
       </div>
       <div className="middle-side">
         <GameBoard />
-
-      </div>
-      <div className='right-side'>
         <MessageYourTurn />
 
       </div>

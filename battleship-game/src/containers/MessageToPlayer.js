@@ -19,7 +19,6 @@ let MessageToPlayer = (props)=> {
   let btnStart = null;
   // Check if all ships are placed
   if (checkShips(props.ships)) {
-    messageToPlayer = 'All ships are placed!';
     btnStart = (
       <Link to='/play_game'>
         <button className='buttonStart' onClick={startGame}>Start the game</button>
@@ -27,8 +26,7 @@ let MessageToPlayer = (props)=> {
     );
   }
   return (
-    <div className='message'>
-      {messageToPlayer}
+    <div>
       {btnStart}
     </div>
   );

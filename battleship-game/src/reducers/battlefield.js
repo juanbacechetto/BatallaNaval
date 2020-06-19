@@ -1,7 +1,7 @@
 import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_CELL, PLACE_SHIP_ON_BOARD, RELOCATE_SHIP,
-    OPPONENT_SETUP, CHANGE_CELL_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from '../actions/actionsTypes';
-  import BOARD_DIMENSION from '../actions/data';
-  import setupMatrixOpponent from '../helpers/opponentMatrix';
+  OPPONENT_SETUP, CHANGE_CELL_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from '../actions/actionsTypes';
+import BOARD_DIMENSION from '../actions/data';
+import setupMatrixOpponent from '../helpers/opponentMatrix';
 
   
   export const initialState = { ships:
@@ -82,7 +82,7 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_CELL, PLACE_SHIP_O
     }
   };
   const bombMatrix = (matrix, string, x, y) => {
-    console.log('kati');
+
     return [
       ...matrix.slice(0, y),
       matrix[y].map((cell, index) => {
@@ -165,17 +165,12 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_CELL, PLACE_SHIP_O
             ...state.ships.slice(action.id + 1)
           ]
         }
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Link: play_game
         //insert the matrix of the opponent
       case OPPONENT_SETUP:
         return {
           ...state,
-          // returns an object (object destructuring)
           ...setupMatrixOpponent(state.ships),
           gamePhase: 0
-          // matrixOpponent: setupMatrixOpponent(state.ships).matrixOpponent,
-          // shipsOpponent: setupMatrixOpponent(state.ships).shipsOpponent,
-          // totalShipCells: setupMatrixOpponent(state.ships).totalShipCells
         }
       case CHANGE_CELL_TARGET:
         return {
@@ -226,7 +221,6 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_CELL, PLACE_SHIP_O
             opponentTurn: action.message,
             isYourTurn: true,
             cellsHitOpponent: state.cellsHitOpponent + addOne,
-            // when gamePhase is 3, computer wins
             gamePhase: winOne,
             previousHit: {isItX: action.string, prevX: action.x, prevY: action.y},
             hittingMoves: {

@@ -1,140 +1,64 @@
 .smallTable {
-    margin: 0 -4.4vw 0 -1.6vw;
-  }
-  .cell {
-    display: inline-block;
-    border: 1px solid #999;
-    background-color: #b7ecfb;
-    margin: 0 -2px -5px 0;
-    height: 4.8vw;
-    width: 4.8vw;
-  }
-  .cellSmaller {
-    width: 2.8vw;
-    height: 2.8vw;
-  }
-  .cellHover {
-    outline: none;
-    background-color: #5c6093;
-    cursor: pointer;
-  }
-  .cellShip {
-    outline-color: invert;
-    background-color: #7e6f90;
-    /*cursor: pointer;*/
-  }
-  .cellHit {
-    outline-color: brown;
-    background-color: orange;
-  }
-  .cellMissed {
-    outline-color: blue;
-    background-color: #9c88b9;
-  }
-  .rowNumber {
-    display: inline-block;
-    font-size: 1.9vw;
-    width: 4.8vw;
-    height: 2.8vw;
-    vertical-align: middle;
-    text-align: center;
-    margin-top: -2vw;
-  }
-  .colNumber {
-    font-size: 1.7vw;
-    text-align: center;
-    background-color: inherit;
-    padding-top: 1vw;
-    margin: 0;
-    border: none;
-  }
-  .colNumberSmaller {
-    font-size: 1.1vw;
-  }
-  .rowNumberSmaller {
-    font-size: 1.1vw;
-    width: 2.4vw;
-    height: 0.7vw;
-  }
-  
-  @media screen and (min-width: 1240px) {
-    .cell {
-      width: 3.7vw;
-      height: 3.7vw;
-    }
-    .colNumber {
-      font-size: 1.1vw;
-    }
-    .rowNumber {
-      font-size: 1.1vw;
-    }
-    .cellSmaller {
-      width: 2.5vw;
-      height: 2.5vw;
-    }
-  }
-  
-  @media screen and (min-width: 400px) and (max-width: 600px) {
-    .smallTable {
-      margin: 0 -25vw 0 -1.6vw;
-    }
-    .yourBoardTitle {
-      margin: 4vw -45vw 1.5vw -18vw;
-      width: 11em;
-  
-    }
-    .cell {
-      height: 4vw;
-      width: 4vw;
-    }
-    .colNumber {
-      font-size: 2vw;
-    }
-    .cellSmaller {
-      height: 4.1vw;
-      width: 4.1vw;
-    }
-    .rowNumber {
-      font-size: 2.2vw;
-      width: 4.8vw;
-      height: 1.8vw;
-    }
-    .rowNumberSmaller {
-      font-size: 2vw;
-      width: 2.4vw;
-      height: 0.7vw;
-      margin-top: -1.6vw;
-    }
-  }
-  
-  @media screen and (max-width: 400px) {
-    .smallTable {
-      margin: 0 -25vw 0 -1.6vw;
-    }
-    .yourBoardTitle {
-      margin: 17vw -25vw 0 0;
-    }
-    .cell {
-      height: 4.9vw;
-      width: 4.7vw;
-    }
-    .colNumber {
-      font-size: 2vw;
-    }
-    .cellSmaller {
-      height: 5vw;
-      width: 5vw;
-    }
-    .rowNumber {
-      font-size: 2.2vw;
-      width: 4.8vw;
-      height: 1.8vw;
-    }
-    .rowNumberSmaller {
-      font-size: 2vw;
-      width: 2.4vw;
-      height: 0.7vw;
-      margin-top: 0;
-    }
-  }
-  
+  margin: 0 -4.4vw 0 -1.6vw;
+}
+
+.board-container {
+  display: inline-grid;
+  padding-right: 2px;
+  border: 2px solid #666666;
+}
+.cell {
+  display: inline-block;
+  border: 1px solid #999;
+  background-color: #ffffff;
+  margin: 0 -2px -5px 0;
+  height: 4.8vw;
+  width: 4.8vw;
+}
+.cellSmaller {
+  width: 2.8vw;
+  height: 2.8vw;
+}
+.cellHover {
+  outline: none;
+  background-color: #777777;
+  cursor: pointer;
+}
+.cellShip {
+  outline-color: invert;
+  background-color: #bbbbbb;
+}
+.cellHit {
+  outline-color: black;
+  background-color: #FF2200;
+}
+.cellMissed {
+  outline-color: blue;
+  background-color: #7fd0ff;
+}
+.rowNumber {
+  display: inline-block;
+  font-size: 1.9vw;
+  width: 4.8vw;
+  height: 2.8vw;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: -2vw;
+}
+.colNumber {
+  font-size: 1.7vw;
+  text-align: center;
+  background-color: inherit;
+  padding-top: 1vw;
+  margin: 0;
+  border: none;
+}
+.colNumberSmaller {
+  font-size: 1.1vw;
+}
+.rowNumberSmaller {
+  font-size: 1.1vw;
+  width: 2.4vw;
+  height: 0.7vw;
+}
+

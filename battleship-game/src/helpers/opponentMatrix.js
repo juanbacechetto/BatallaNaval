@@ -4,7 +4,6 @@ import BOARD_DIMENSION from '../actions/data';
 const setupMatrixOpponent = (ships) => {
   let shipsOpponent = [];
   let totalShipCells = 0;
-  // let matrixOpponent = new Array(BOARD_DIMENSION).fill(new Array(BOARD_DIMENSION).fill(null));
   let matrixOpponent = new Array(BOARD_DIMENSION).fill(1).map((elem) => {
     return new Array(BOARD_DIMENSION).fill(null)
   });

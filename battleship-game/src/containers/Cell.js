@@ -9,19 +9,17 @@ let Cell = (props)=> {
 // hoverCell shows the possible position of the ship according to size
   const hoverCell = (e) => {
     if (props.selectedShipIndex > -1) {
-    // array distructuring
     let [x, y] = e.target.id.split('-');
     if (x) {
-      // where the cursor actually is (info from the mouseOver event)
+      // where the cursor actually is
       x = parseInt(x, 10);  
       y = parseInt(y, 10);
     }
 // if there is a ship selected
       const size = props.ships[props.selectedShipIndex].size;
-      // diff: to teleytaio index gia na xwraei to ship sti grammi -> ola - size
       const diff = BOARD_DIMENSION - size;
       if (props.ships[props.selectedShipIndex].isHorizontal) {
-        // check if the ship does not fit in the line
+        // check if the ship does not collide with borders
         if (x + size > BOARD_DIMENSION) {
           x = diff;
         }
@@ -30,21 +28,21 @@ let Cell = (props)=> {
           y = diff;
         }
       }
-      // changes the selected cell - the first cell for the ship to fit the line
+      // changes the selected cell 
       props.changeSelectedCell(x, y);
     }
   }
-// clickOnBoard chooses the ships position - this is the first cell of the ship
+// clickOnBoard chooses the ships position
   const clickOnBoard = (e) => {
-    // if there is a ship and you need to relocate it
+    // To relocate ship if you want
     let [x, y] = e.target.id.split('-');
-    // value is the ship id that is written in the matrix
+    // value = ship in matrix
     let value = props.matrix[parseInt(y, 10)][parseInt(x, 10)];
     if (value !== null) {
       return props.relocateShip(value);
     }
     if (props.selectedShipIndex > -1) {
-      // check if there is a cell that is already occupied by another ship
+      //  block the use of a cell that's already occuped by another ship
       const x = props.selectedCell.x;
       const y = props.selectedCell.y;
       const size = props.ships[props.selectedShipIndex].size;
@@ -63,7 +61,6 @@ let Cell = (props)=> {
       }
       // places the ship on the selected cell according to its orientation -> matrix cell value = shipIndex
       props.placeShipOnBoard();
-//      props.deselectShipIndex();
     }
   }
   // changes the color of the cell on the ship hover

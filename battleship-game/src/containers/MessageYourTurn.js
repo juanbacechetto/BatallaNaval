@@ -14,29 +14,21 @@ let MessageYourTurn = (props) => {
     });
   }
 
-  if (props.gamePhase === 0) {
-    hitMessage = ' Throw the first torpedo!';
-  } else if (props.gamePhase === 2) {
+
+  if (props.gamePhase === 2) {
     hitMessage = ' You are the winner!';
     endMessage = (
-      <button className='buttonStart' onClick={playOneMore}>Play again?</button>
+      <button className='buttonStart' onClick={playOneMore}>Reload</button>
     );
   } else if (props.gamePhase === 3) {
     hitMessage = ' Computer wins!';
     endMessage = (
-      <button className='buttonStart' onClick={playOneMore}>Play again?</button>
+      <button className='buttonStart' onClick={playOneMore}>Reload</button>
     );
   } else {
-    // if (props.gamePhase === 1)
-    if (props.isYourTurn) {
-      hitMessage = ' It\'s your turn to hit!';
-    } else {
-      if (props.didYouMiss) {
-        hitMessage = 'You missed!';
-      } else {
-        hitMessage = 'You hit a ship!';
-      }
-    }
+    endMessage = (
+      <button className='buttonStart' onClick={playOneMore}>Surrender</button>
+    );
   }
 
   return (

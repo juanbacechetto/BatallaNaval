@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 // creates the list of ships and the toggle button
 let Ships = (props)=> {
   return <div className='toggleButton'>
-    <h3 className='caption'>These are your ships</h3>
+    <h3 className='caption'>Place your ships</h3>
     <ShipOrientation />
     <div className='ships'>
       {props.ships.map((ship, index)=> (
@@ -19,7 +19,7 @@ let Ships = (props)=> {
     </div>
   </div>
 };
-//mesw toy Redux 8a perastei to props.ships kai to selectedShipIndex
+
 const mapStateToProps = (state)=> {
   return {
     ships: state.ships,

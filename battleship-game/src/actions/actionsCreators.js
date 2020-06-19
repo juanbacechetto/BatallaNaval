@@ -51,10 +51,10 @@ import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_CELL, PLACE_SHIP_O
       y
     };
   };
-  // matrix, previousHit, hittingMoves come from state (from PlayCell)
+  // arguments come from state (from PlayCell)
   const opponentAboutToPlay = (matrix, previousHit, hittingMoves) => {
     return (dispatch) => {
-  // three arguments and a callback
+  //callback
       opponentMove(matrix, previousHit, hittingMoves, ({string, x, y, message, positionArray, sinkShip, shipOrientation, newStage}) => {
         dispatch({
           type: OPPONENT_PLAY,

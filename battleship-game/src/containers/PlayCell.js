@@ -12,7 +12,7 @@ class PlayCell extends React.Component {
   throwTorpedo = (e) => {
     if (this.props.isYourTurn) {
       if (this.props.gamePhase === 0 || this.props.gamePhase === 1) {
-        // array distructuring
+
         let [x, y] = e.target.id.split('-');
         x = parseInt(x, 10);
         y = parseInt(y, 10);
@@ -35,7 +35,6 @@ class PlayCell extends React.Component {
   };
   render() {
     let styleForGame = 'cell';
-    // object destructuring
     let {x, y, matrixOpponent} = this.props;
     if (matrixOpponent[y][x] === 'X') {
       styleForGame += ' cellHit';

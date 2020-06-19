@@ -5,6 +5,7 @@
   display: inline-block;
   float: left;
   width: 29%;
+  margin-left: 2em;
 }
 .middle-side {
   display: inline-block;
@@ -18,21 +19,11 @@
   margin-left: 2px;
 }
 h3 {
-  color: #99129b;
+  color: #222222;
   margin-bottom: 0.6em;
   display: inline-block;
 }
-@media screen and (max-width: 600px) {
-  .right-side {
-    width: 46%;
-  }
-  h3 {
-    font-size: 4vw;
-  }
-  h2 {
-    font-size: 5vw;
-  }
-}
+
 li {
   margin-bottom: 0.4em;
   padding-top: 0.4em;

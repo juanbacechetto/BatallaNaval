@@ -1,11 +1,18 @@
 .title {
-    display: block;
-    margin-bottom: 0.5em;
-    color: blue;
+  margin: 1em 0 0.5em 0;
+  color: #343434;
+  font-weight: bold;
+  font-family: 'Ultra', sans-serif;
+  font-size: 40px;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  text-shadow: 0 2px white, 0 3px #777;
   }
   .titleBox {
     display: block;
     width: 100%;
     margin-bottom: 1em;
   }
-  
+  .App {
+    text-align: center;
+  }

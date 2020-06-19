@@ -3,45 +3,35 @@ import YourCell from './YourCell';
 import BOARD_DIMENSION from '../actions/data';
 
 let arrRows = [];
-let arrCols = [];
+
 for (let i = 0; i < BOARD_DIMENSION; i++) {
   arrRows.push(i);
-}
-//creates an array of the head letters
-for (let i = 0; i < BOARD_DIMENSION; i++){
-    arrCols.push(String.fromCharCode(65 + i));
 }
 
 const YourGameBoard = () => {
   return (
     <div>
       <h3 className="yourBoardTitle">
-        These are your ships in the battlefield
+        CPU
       </h3>
       <div className='smallTable'>
-        <div className='rowNumber rowNumberSmaller'>&nbsp;</div>
-        {
-          arrCols.map((letter, index) => (
-            // the head letters
-            <div className='cell cellSmaller colNumber colNumberSmaller' key={index}>{letter}</div>
-          ))
-        }
+        <div className='board-container'>
           {
-            // builds the board row by row from Cell
-            arrRows.map((y, index)=> (
+            // Use Cell for build the Board
+            arrRows.map((y, index) => (
               <div key={index}>
-                <div className='rowNumber rowNumberSmaller'>{y + 1}</div>
                 {
-                  arrRows.map((x)=> (
+                  arrRows.map((x) => (
                     <YourCell
                       x={x}
                       y={y}
-                      key={`${x}${y}`}/>
+                      key={`${x}${y}`} />
                   ))
                 }
               </div>
             ))
           }
+        </div>
       </div>
     </div>
   );

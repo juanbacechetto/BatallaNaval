@@ -10,7 +10,7 @@ import App from './App';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-//Carpeta a parte store
+//Mover a otra carpeta
 let store = createStore(
   battleField,
   composeEnhancer(applyMiddleware(reduxThunk))

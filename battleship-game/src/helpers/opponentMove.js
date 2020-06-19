@@ -13,10 +13,8 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
   const makeNewMove = (x, y) => {
       if (matrix[y][x] !== null) {
         string = 'X';
-        message = 'Your ship was hit!';
       } else {
         string = 'o';
-        message = 'Your opponent missed!';
       }
     return {string, x, y, message};
   };
@@ -67,7 +65,6 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
 
   // wait 2 to 4 seconds and choose the target cell
   let timeWait = Math.random() * (1500 - 1000) + 1000;
-  // let handle =
   setTimeout(function() {
 
     switch (stage) {

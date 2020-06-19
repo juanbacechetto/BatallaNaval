@@ -1,29 +1,23 @@
 .message {
     margin-top: 1em;
     margin-left: 1em;
-    color: blue;
+    color: #222222;
     font-weight: bold;
     font-size:2.5vw;
   }
   .buttonStart {
-    background-color: #f5ff66;
-    border-color: #f1e4f7;
+    background-color: #fafafa;
+    border: 2px solid #666666;
     box-shadow: 2px;
-    border-radius: 3%;
-    color: blue;
+    color: #444444;
     font-size: 2.5vw;
     font-weight: bold;
     margin: 0.5em 5em;
+    cursor: pointer;
   }
-  @media screen and (max-width: 600px) {
-    .message {
-      margin-top: 1.5em;
-      color: blue;
-      font-weight: bold;
-      font-size: 3.5vw;
-    }
-    .buttonStart {
-      font-size: 2.8vw;
-    }
+
+  .buttonStart:hover{
+    background-color: #eaeaea;
   }
+
   

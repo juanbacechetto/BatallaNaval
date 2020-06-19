@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+
+
 let YourCell = (props) => {
-  // changes the color of the cell where your ships are located
+  // changes the color of your ships cells
   let styleForShip = 'cell cellSmaller';
   const cell = props.matrix[props.y][props.x];
     if (cell === 'X') {
@@ -11,7 +13,7 @@ let YourCell = (props) => {
       styleForShip += ' cellMissed';
     } else if (typeof(cell) === 'number') {
       styleForShip += ' cellShip';
-    }
+    } 
 
   return (
     <div id={`${props.x}-${props.y}`}

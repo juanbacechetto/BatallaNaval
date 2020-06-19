@@ -23,7 +23,7 @@ const Board = () => (
         {
           arrCols.map((letter, index) => (
             // the head letters
-            <div className='Cell colNumber' key={index}>{letter}</div>
+            <div className='cell colNumber' key={index}>{letter}</div>
           ))
         }
           {

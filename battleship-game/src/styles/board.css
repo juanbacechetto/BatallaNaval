@@ -25,11 +25,11 @@
   }
   .cellHit {
     outline-color: brown;
-    background-color: red;
+    background-color: orange;
   }
   .cellMissed {
     outline-color: blue;
-    background-color: #b7b3bd;
+    background-color: #9c88b9;
   }
   .rowNumber {
     display: inline-block;

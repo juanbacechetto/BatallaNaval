@@ -10,7 +10,7 @@ let MessageYourTurn = (props) => {
   const playOneMore = () => {
     props.playAgain();
     props.history.push({
-      pathname: '/setup'
+      pathname: '/'
     });
   }
 

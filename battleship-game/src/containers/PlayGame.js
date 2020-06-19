@@ -12,7 +12,7 @@ let PlayGame = (props) => {
 // takes you to setup if not all ships are placed - Check again
   if (!test) {
     props.history.replace({
-      pathname: '/setup'
+      pathname: '/'
     });
   }
   return (
@@ -31,6 +31,7 @@ let PlayGame = (props) => {
       </div>
       <div className='right-side'>
         <MessageYourTurn />
+
       </div>
     </div>
   );

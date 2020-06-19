@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import GameBoard from '../components/GameBoard';
 import PlayInstructions from '../components/PlayInstructions';
 import YourGameBoard from './YourGameBoard';
-import checkShips from '../helpFunctions/checkShips';
+import checkShips from '../helpers/checkShips';
+import MessageYourTurn from './MessageYourTurn';
 import '../styles/gameTitle.css';
 
 let PlayGame = (props) => {
@@ -30,7 +31,6 @@ let PlayGame = (props) => {
       </div>
       <div className='right-side'>
         <MessageYourTurn />
-        {/* <ChatRoom /> */}
       </div>
     </div>
   );

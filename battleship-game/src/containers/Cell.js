@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {changeSelectedSquare, placeShipOnBoard, relocateShip} from '../actions/actionCreators';
+import {changeSelectedSquare, placeShipOnBoard, relocateShip} from '../actions/actionsCreators';
 import BOARD_DIMENSION from '../actions/data';
 import '../styles/board.css';
 
@@ -13,7 +13,7 @@ let Cell = (props)=> {
     let [x, y] = e.target.id.split('-');
     if (x) {
       // where the cursor actually is (info from the mouseOver event)
-      x = parseInt(x, 10);
+      x = parseInt(x, 10);  
       y = parseInt(y, 10);
     }
 // if there is a ship selected

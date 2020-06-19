@@ -1,6 +1,6 @@
 import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP_ON_BOARD, RELOCATE_SHIP,
-    OPPONENT_SETUP, CHANGE_SQUARE_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from './actionTypes';
-  import opponentMove from '../helpFunctions/opponentMove';
+    OPPONENT_SETUP, CHANGE_SQUARE_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from './actionsTypes';
+  import opponentMove from '../helpers/opponentMove';
   
   const selectShip = (id)=> {
     return {

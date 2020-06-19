@@ -1,30 +1,26 @@
 import {SELECT_SHIP, CHANGE_SHIP_ORIENTATION, CHANGE_SELECTED_SQUARE, PLACE_SHIP_ON_BOARD, RELOCATE_SHIP,
-    OPPONENT_SETUP, CHANGE_SQUARE_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from '../actions/actionTypes';
+    OPPONENT_SETUP, CHANGE_SQUARE_TARGET, THROW_BOMB, OPPONENT_PLAY, PLAY_AGAIN} from '../actions/actionsTypes';
   import BOARD_DIMENSION from '../actions/data';
-  import setupMatrixOpponent from '../helpFunctions/setupMatrixOpponent';
-  // import checkShips from '../helpFunctions/checkShips';
+  import setupMatrixOpponent from '../helpers/opponentMatrix';
+
   
   export const initialState = { ships:
     [
-      {id: 0, isHorizontal: true, size: 2, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 1, isHorizontal: true, size: 1, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 2, isHorizontal: true, size: 4, isPlaced: false, xFirst: null, yFirst: null},
+      {id: 0, isHorizontal: true, size: 4, isPlaced: false, xFirst: null, yFirst: null},
+      {id: 1, isHorizontal: true, size: 3, isPlaced: false, xFirst: null, yFirst: null},
+      {id: 2, isHorizontal: true, size: 3, isPlaced: false, xFirst: null, yFirst: null},
       {id: 3, isHorizontal: true, size: 3, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 4, isHorizontal: true, size: 1, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 5, isHorizontal: true, size: 2, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 6, isHorizontal: true, size: 5, isPlaced: false, xFirst: null, yFirst: null}
+      {id: 4, isHorizontal: true, size: 2, isPlaced: false, xFirst: null, yFirst: null}
     ],
     selectedShipIndex: -1,
     selectedSquare: {x: 0, y: 0},
     matrix: new Array(BOARD_DIMENSION).fill(new Array(BOARD_DIMENSION).fill(null)),
     shipsOpponent: [
-      {id: 0, isHorizontal: true, size: 2, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 1, isHorizontal: true, size: 1, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 2, isHorizontal: true, size: 4, isPlaced: false, xFirst: null, yFirst: null},
+      {id: 0, isHorizontal: true, size: 4, isPlaced: false, xFirst: null, yFirst: null},
+      {id: 1, isHorizontal: true, size: 3, isPlaced: false, xFirst: null, yFirst: null},
+      {id: 2, isHorizontal: true, size: 3, isPlaced: false, xFirst: null, yFirst: null},
       {id: 3, isHorizontal: true, size: 3, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 4, isHorizontal: true, size: 1, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 5, isHorizontal: true, size: 2, isPlaced: false, xFirst: null, yFirst: null},
-      {id: 6, isHorizontal: true, size: 5, isPlaced: false, xFirst: null, yFirst: null}
+      {id: 4, isHorizontal: true, size: 2, isPlaced: false, xFirst: null, yFirst: null}
     ],
     matrixOpponent: new Array(BOARD_DIMENSION).fill(new Array(BOARD_DIMENSION).fill(null)),
     // during setup: -1,

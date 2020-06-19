@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {selectShip} from '../actions/actionCreators';
+import {selectShip} from '../actions/actionsCreators';
 import '../styles/ships.css';
 
 // Ship creates each ship according to size

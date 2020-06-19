@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {changeSquareTarget, throwBomb, opponentAboutToPlay} from '../actions/actionCreators';
+import {changeSquareTarget, throwBomb, opponentAboutToPlay} from '../actions/actionsCreators';
 import '../styles/board.css';
 
 class PlayCell extends React.Component {

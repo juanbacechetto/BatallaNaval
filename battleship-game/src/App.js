@@ -3,6 +3,7 @@ import React from 'react';
 import GameInstructions from './components/GameIntructions';
 import Board from './components/Board';
 import MyShips from './containers/MyShips';
+import MessageToPlayer from './containers/MessageToPlayer';
 import './styles/gameTitle.css';
 
 const App = () => (
@@ -17,10 +18,8 @@ const App = () => (
     </div>
     <div className="middle-side">
       <Board />
+      <MessageToPlayer />
     </div>
-    {/* <div className='right-side'>
-      <ChatRoom />
-    </div> */}
   </div>
 );
 export default App;

@@ -101,7 +101,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
           if (y === 0) {
             initializeHit();
           } else {
-            y = y - 1;
+            y -= 1;
             if (matrix[y][x] === 'X' || matrix[y][x] === 'o') {
               // if the cell has already been hit
               initializeHit();
@@ -118,7 +118,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
           if (x === 0) {
             initializeHit();
           } else {
-            x = x - 1;
+            x -= 1;
             if (matrix[y][x] === 'X' || matrix[y][x] === 'o') {
               initializeHit();
             } else {
@@ -135,7 +135,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
             let flags = false;
             let k = y;
             for (let j = 0; j < k; j++) {
-              y = y - 1;
+              y -= 1;
               if (matrix[y][x] !== 'X' && matrix[y][x] !== 'o') {
                 flags = true;
                 break;
@@ -158,7 +158,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
           if (y === BOARD_DIMENSION - 1) {
             hitOpposite();
           } else {
-            y = y + 1;
+            y += 1;
             if (matrix[y][x] === 'X' || matrix[y][x] === 'o') {
               // then hit on the opposite side
               hitOpposite();
@@ -176,7 +176,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
             let flags = false;
             let k = x;
             for (let j = 0; j < k; j++) {
-              x = x - 1;
+              x -= 1;
               if (matrix[y][x] !== 'X' && matrix[y][x] !== 'o') {
                 flags = true;
                 break;
@@ -199,7 +199,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
           if (x === BOARD_DIMENSION - 1) {
             oppositeHit();
           } else {
-            x = x + 1;
+            x += 1;
             if (matrix[y][x] === 'X' || matrix[y][x] === 'o') {
               // then hit on the opposite side
               oppositeHit();
@@ -218,7 +218,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
         if (shipOrientation === 0) {
           let k = y;
           for (let j = 0; j < k; j++) {
-            y = y - 1;
+            y -= 1;
             if (matrix[y][x] !== 'X' && matrix[y][x] !== 'o') {
               k = -1;
               break;
@@ -236,7 +236,7 @@ const opponentMove = (matrix, previousHit, hittingMoves, callback) => {
         } else if (shipOrientation === 2) {
           let k = x;
           for (let j = 0; j < k; j++) {
-            x = x - 1;
+            x -= 1;
             if (matrix[y][x] !== 'X' && matrix[y][x] !== 'o') {
               k = -1;
               break;

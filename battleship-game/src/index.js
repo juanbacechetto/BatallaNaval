@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware} from 'redux';
 import battleField from './reducers/battlefield';
 import reduxThunk from 'redux-thunk';
-import {BrowserRouter as Router} from 'react-router-dom';
+import App from './App';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -19,9 +18,7 @@ let store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-        <Routes />
-    </Router>
+    <App />
   </Provider>, document.getElementById('root')
 );
 registerServiceWorker();
